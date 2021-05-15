@@ -9,6 +9,34 @@
         <nuxt-link to="/todos" class="button--green">todos</nuxt-link>
       </div>
     </div>
+    <v-alert dense outlined prominent text type="success"></v-alert>
+    <v-app>
+      <v-avatar color="teal" rounded size="56" tile>コッシー</v-avatar>
+      <v-alert
+        color="red"
+        dense
+        dismissible
+        outlined
+        prominent
+        text
+        type="error"
+        >これはエラーだよ</v-alert
+      >
+    </v-app>
+    <v-app>
+      <v-alert border="top" color="red lighten-2" dark>
+        I'm an alert with a top border and red color
+      </v-alert>
+      <v-alert border="right" color="blue-grey" dark>
+        I'm an alert with a right border and blue-grey color
+      </v-alert>
+      <v-alert border="bottom" color="pink darken-1" dark>
+        I'm an alert with a bottom border and pink color
+      </v-alert>
+      <v-alert border="left" color="indigo" dark>
+        I'm an alert with a border left type info
+      </v-alert>
+    </v-app>
   </div>
 </template>
 
@@ -25,10 +53,8 @@ export default {};
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+  /* background-color: aquamarine; */
 }
 
 .title {
@@ -42,6 +68,6 @@ export default {};
 }
 
 .links {
-  padding-top: 15px;
+  padding: 15px 15px;
 }
 </style>

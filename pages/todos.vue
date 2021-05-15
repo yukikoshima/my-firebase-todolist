@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <h1 class="text-6xl">todos</h1>
+    <h1 class="">todos</h1>
     <ul>
       <li>{{ todos }}</li>
     </ul>
-    <input type="text" />
+    <input type="text" class="border-solid border-2 border-light-blue-500" />
     <button>追加</button>
   </div>
 </template>
