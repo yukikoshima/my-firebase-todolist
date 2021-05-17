@@ -3,7 +3,7 @@ export default {
   head: {
     title: "my-firebase-todolist",
     htmlAttrs: {
-      lang: "en"
+      lang: "ja"
     },
     meta: [
       { charset: "utf-8" },

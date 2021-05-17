@@ -8,7 +8,7 @@ export const state = () => ({
   todos: []
 });
 
-export const action = {
+export const actions = {
   init: firestoreAction(({ bindFirestoreRef }) => {
     bindFirestoreRef("todos", todosRef);
   }),
