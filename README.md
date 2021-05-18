@@ -1,5 +1,9 @@
 # my-firebase-todolist
 
+## firebase 初心者が Nuxt で簡単な todo アプリを作ってみた
+
+<br>
+
 ## Build Setup
 
 ```bash
