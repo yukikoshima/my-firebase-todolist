@@ -2,7 +2,6 @@
   <v-app>
     <v-main>
       <v-container grid-list-md>
-        <!-- <v-icon>mdi-user-circle</v-icon> -->
         <h1 class="text-center mb-5 orange--text text--lighten-1">
           Hey!! What to do today?
         </h1>
@@ -15,34 +14,39 @@
                 v-model="name"
                 single-line
                 outlined
+                :append-icon="mdiBorderColor"
               >
-                <!-- <template v-slot:append-outer>
-                  <v-btn color="primary">
-                    追加
-                  </v-btn>
-                </template> -->
               </v-text-field>
             </v-col>
           </v-row>
         </v-form>
         <v-card class="mb-5">
           <v-card-title primary-title>
-            今日やること
+            Todo
           </v-card-title>
           <v-list>
-            <v-list-item-group multiple>
-              <v-list-item v-for="todo in todos" :key="todo.id">
-                <!-- <template v-slot:default="{ active }"> -->
-                <v-list-item-action>
-                  <v-checkbox
-                    :input-value="active"
-                    @change="toggle(todo)"
-                  ></v-checkbox>
-                </v-list-item-action>
+            <!-- <v-list-item-group multiple> -->
+            <v-list-item v-for="todo in todos" :key="todo.id">
+              <!-- <template v-slot:default="{ active }"> -->
+              <v-list-item-action>
+                <v-checkbox
+                  :input-value="todo.done"
+                  @change="toggle(todo)"
+                ></v-checkbox>
+              </v-list-item-action>
+
+              <v-list-item-content>
                 <v-list-item-title v-text="todo.name"></v-list-item-title>
-                <!-- </template> -->
-              </v-list-item>
-            </v-list-item-group>
+              </v-list-item-content>
+
+              <v-list-item-action>
+                <v-btn @click="remove(todo.id)">
+                  <v-icon>{{ mdiDelete }}</v-icon>
+                </v-btn>
+              </v-list-item-action>
+              <!-- </template> -->
+            </v-list-item>
+            <!-- </v-list-item-group> -->
           </v-list>
         </v-card>
       </v-container>
@@ -51,11 +55,15 @@
 </template>
 
 <script>
+import { mdiBorderColor, mdiDelete } from "@mdi/js";
+
 export default {
   data() {
     return {
       name: "",
-      done: false
+      done: false,
+      mdiBorderColor,
+      mdiDelete
     };
   },
   created() {
@@ -71,11 +79,12 @@ export default {
       this.$store.dispatch("todos/add", this.name);
       this.name = "";
     },
+    remove(id) {
+      this.$store.dispatch("todos/remove", id);
+    },
     toggle(todo) {
       this.$store.dispatch("todos/toggle", todo);
     }
   }
 };
 </script>
-
-<style></style>
